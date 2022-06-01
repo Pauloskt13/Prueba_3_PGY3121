@@ -1,0 +1,85 @@
+<div class="container-fluid" >
+    <body>
+    <h1 class="display-5 bg-light text-center text-success "  ><strong class="justify-content-center">Contacto</strong><br></h1>
+
+    <script>
+      $(document).ready(function() {
+
+       $("#basic-form").validate({
+    rules: {
+      name : {
+        required: true,
+        minlength: 3
+      },
+      apellido : {
+        required: true,
+        minlength: 3
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      tel : {
+        required: true,
+        number: true,
+        minlength: 8       
+      }
+    }
+    
+  });
+});
+
+    </script>
+
+    <div class="container-fluid ml-4-mr-4">
+      <form class="row g-3 bg-light mt-2 mb-3 pt-1 pb-2" id="basic-form" method="post" >
+        <form id="basic-form" action="" method="post">
+          <p> 
+            <label for="name" class="form-label" >Nombre </label>
+            <input id="name" name="name" minlength="3" type="text" class="form-control" required>
+            <span>(campo obligatorio mínimo 3 carácteres)</span>
+          </p>
+          <p> 
+            <label for="apellido" class="form-label">Apellido </label>
+            <input id="apellido" name="apellido" minlength="3" type="text" class="form-control" required>
+            <span>(campo obligatorio mínimo 3 carácteres)</span>
+          </p>
+          <p>
+            <label for="email" class="form-label>E-Mail </label>
+            <input id="email" type="email" name="email" class="form-control" required>
+            <span>(campo obligatorio)</span>
+          </p>
+          <p> 
+            <label for="tel" class="form-label">Teléfono </label>
+            <input id="tel" name="tel" minlength="8" maxlength="12" type="number" placeholder="569 99999999" class="form-control" required>
+            <span>(campo obligatorio)</span>
+          </p>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Calle 1234 ">
+            </div>
+            
+          <div class="col-md-4">
+              <label for="lname" class="form-label">Region</label><br>
+              <select onchange= "getComunas(this.value)" class="form-select" name="regions" id="selectRegionId">
+                  <option value="">Seleciona..</option>
+              </select>
+            
+          </div>
+          <div class="col-md-4">
+            <label for="inputState" class="form-label">Comuna</label>
+            <select id="selectComunas" class="form-select" name="comunas">
+              <option >Selecciona..</option>
+            </select>
+          </div>
+        
+          <div class="m-2 p-3">
+            <input class="button" type="submit" value="Aceptar" class="btn btn-success">
+            <input type="reset"  class="btn btn-success" value="Limpiar formulario">
+          </div>
+        </form>
+      </div>
+    </body>
+    
+  </div>
+
