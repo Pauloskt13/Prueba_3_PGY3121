@@ -1,0 +1,129 @@
+<div class="container-fluid"> 
+<html>
+    <body class="conteimner fluid" background="img/background_page.jpg">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+    <center>
+      <h1 class="display-5 bg-light text-center text-success"><strong class="justify-content-center">Contactanos</strong><br>
+        <p class="text-secondary d-flex justify-content-center fs-5">Completa el siguiente formulario , nosotros nos pondremos en contacto contigo a la brevedad </p> </h1>
+    </center>
+    <script>
+      $(document).ready(function() {
+
+      $("#basic-form").validate({
+    rules: {
+      name : {
+        required: true,
+        minlength: 3
+      },
+      apellido : {
+        required: true,
+        minlength: 3
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      tel : {
+        required: true,
+        number: true,
+        minlength: 8       
+      }
+    }
+    
+  });
+  });
+
+  function validateEmail(email) {
+      var re = /\S+@\S+\.\S+/;
+      return re.test(email);
+  }
+
+    </script>
+
+    
+      <form id="basic-form" action="" method="post">
+        <div class="mb-3 p-2"> 
+            <label for="name">Nombre</label>
+            <input  class="form-control" id="name" name="name" minlength="3" type="text" required> <span>(campo obligatorio mínimo 3 carácteres)</span>
+        </div>    
+        <div class="mb-3 p-2">
+            <label for="apellido">Apellido </label>
+            <input  class="form-control" id="apellido" name="apellido" minlength="3" type="text" required><span>(campo obligatorio mínimo 3 carácteres)</span>
+        </div>
+
+        <div class="mb-3 p-2">  
+            <label for="email">E-Mail</label>
+            <input  class="form-control" id="email" type="email" name="email" required> <span>(campo obligatorio)</span>
+          </div>
+          
+          <div class="mb-3 p-2 ">
+            <label for="tel" class="form-label">Teléfono</label>
+            <input class="form-control" id="tel" name="tel" minlength="8" maxlength="12" type="number" placeholder="569 99999999" required>  <span>(campo obligatorio)</span>
+          </div>
+          <div class="mb-3 p-2">
+            <label for="inputAddress" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Calle 1234 ">
+          </div> 
+          
+          <div  class="mb-3 p-2">
+            
+            <label>Region</label>
+            <select  id="selectRegion" name="regions" class="form-select">
+              <option>selecciona</option>
+            </select>
+
+          
+            <label>Comuna</label>
+            <select id="selectComunas" class="form-select" name="comuna">
+              <option>Selecciona..</option>
+            </select>
+          </div>
+        </div>
+        
+          <div class="mb-3 p-2">
+            <input id="enviar" class="btn btn-success btn-lg" class="button" type="submit" value="Aceptar" >
+          </div>
+        </div>  
+    </form>
+ 
+   <!--FOOTER-->
+    <footer class="bg-light text-center blank m-3   ">
+      <div class="container pt-1 pb-0 mx-auto" >
+        <section class="">
+          <form action="">
+            <div class="row d-flex justify-content-center">
+              <div class="col-auto">
+                <p class="pt-2">
+                  <strong>Suscribite a nuestro newsletter</strong>
+                </p>
+              </div>
+              <div class="col-md-5 col-12">
+                <!-- EMAIL INPUT CON VALIDACION DE CORREO  -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="form5Example27" class="form-control" />
+                  <label class="form-label" for="form5Example27">Correo Electronico</label>
+                </div>
+              </div>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-success ">
+                  Suscribirse
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-blue" href="https://mdbootstrap.com/">Cheems Market</a>
+      </div>
+    </footer>
+      
+    <script  src="js/main.js"></script>
+      
+  
+    </body>
+  </html>
+</div>
+
