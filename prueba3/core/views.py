@@ -7,3 +7,9 @@ def index(request):
 
 def nosotros(request):
     return render(request, 'core/nosotros.html')
+    
+def tienda(request):
+    return render(request, 'core/tienda.html')
+
+def contacto(request):
+    return render(request, 'core/contacto.html')

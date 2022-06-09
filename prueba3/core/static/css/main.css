@@ -19,7 +19,7 @@ h1{
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 30px;
-    size-adjust: ;
+    size-adjust: inherit;
 }
 
 
@@ -64,7 +64,7 @@ body {
 
 
 #fotonosotros{
-        border-radius: 70%;
+        border-radius: 100%;
         width: 50%;
         height: auto;
         margin:auto;
@@ -82,4 +82,18 @@ body {
 
 form{
     background-color: rgb(255, 255, 255);
+}
+
+#logo {
+    border-radius: 50%;
+    justify-content: center;
+    width: 15%;
+    height: 15%;
+}
+
+.welcome{
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+
 }
