@@ -13,3 +13,6 @@ def tienda(request):
 
 def contacto(request):
     return render(request, 'core/contacto.html')
+
+def donaciones(request):
+    return render(request, 'core/donaciones.html')

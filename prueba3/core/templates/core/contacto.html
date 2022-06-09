@@ -52,8 +52,8 @@
       </nav>
       
     <center>
-      <h1 class="display-5 bg- text-center text-black p-6"><strong class="justify-content-center">Contacto</strong><br>
-        <p class="text-black d-flex justify-content-center fs-5 mt-2">Si tienes alguna duda o consulta contactanos, estaremos felices de poder ayudarte</p> </h1>
+      <h1 class="display-5 bg- text-center text-black p-6"><strong class="justify-content-center">CONTACTO</strong><br></h1>
+        <p class="text-success d-flex justify-content-center fs-5 mt-2 bg-light">Si tienes alguna duda o consulta contactanos, estaremos felices de poder ayudarte</p> 
     </center>
     <p>    </p>
     
@@ -112,7 +112,7 @@ $(document).ready(function(){
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/localization/messages_es.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
-    <form id="basic-form" action="" method="post">
+    <form id="basic-form" action="" method="post" class="p-2">
         <p> 
           <label for="name">Nombre <span>(campo obligatorio)</label>
           <input id="name" name="name" minlength="3" type="text" required>
@@ -130,10 +130,8 @@ $(document).ready(function(){
           <input type="number" name="telefono" id="telefono" minlength="8" size="11" placeholder="99999999"> 
         </p>
         <p> 
-        <div class="col-12">
           <label for="inputAddress" class="form-label">Dirección<span>(campo obligatorio)</span></label>
           <input type="text" class="form-control" id="inputAddress" minlength="3" placeholder="Calle 1234 " required>
-        </div>
         </p>
         <!--
         <div class="form-group">
@@ -145,8 +143,8 @@ $(document).ready(function(){
           <select class="form-control" id="comunas"  required></select>
         </div>
         <div>-->
-          <button type="submit" class="btn btn-primary" id="submit" value="submit">Enviar</button>
-        </div>
+          <button type="submit" class="btn btn-primary" id="submit" value="submit" class="text-center">Enviar</button>
+        
       
     </form>
    <!--FOOTER-->
@@ -185,6 +183,6 @@ $(document).ready(function(){
       
       
 
-  <script src="js/app.js"></script>
+  <script src="js/main.js"></script>
   </body>
 </html>

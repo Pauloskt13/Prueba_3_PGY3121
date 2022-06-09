@@ -87,8 +87,9 @@ form{
 #logo {
     border-radius: 50%;
     justify-content: center;
-    width: 15%;
+    width: 20%;
     height: 15%;
+    margin-top: 5%;
 }
 
 .welcome{
@@ -96,4 +97,8 @@ form{
     margin-top: 20px;
     padding-top: 20px;
 
+}
+
+p{
+    padding-left: 5%;
 }
