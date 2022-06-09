@@ -88,8 +88,8 @@ form{
     border-radius: 50%;
     justify-content: center;
     width: 20%;
-    height: 15%;
-    margin-top: 5%;
+    height: 20%;
+    margin-top: 2px;
 }
 
 .welcome{
@@ -99,6 +99,6 @@ form{
 
 }
 
-p{
-    padding-left: 5%;
+button{
+    position:initial;
 }
