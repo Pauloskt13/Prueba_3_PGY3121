@@ -10,3 +10,9 @@ Sección:
 
 Docente: 
 - Giovanni Valdivia 
+
+
+
+
+** Credenciales administrador : user : prueba -- psw: prueba 
+** Para acceder al template administrador es necesario esta ruta http://127.0.0.1:8000/administrador.html **
