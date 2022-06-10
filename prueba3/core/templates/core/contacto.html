@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{%load static %}
 <html>
     <head>
         <meta charset="UTF-8">
@@ -9,6 +8,8 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
             {% load static %}
             <link href="{% static "css/main.css" %} " rel="stylesheet">
+            <link rel="stylesheet" href="{% static 'css/demo.css' %} "/>
+            <link rel="stylesheet" href="{% static 'libs/selectric.css' %} "/>
             <link rel="icon" href="img/logo.jpg" href="index.html">
             <title> Contacto -Cheems Market</title>
         </head>
@@ -57,100 +58,128 @@
     </center>
     <p>    </p>
     
-    <!--FORMULARIO-->
-    <script>
-      $(document).ready(function() {
+   <!--FORMULARIO-->
+   <script>
+    $(document).ready(function() {
 
-       $("#basic-form").validate({
-    rules: {
-      name : {
-        required: true,
-        minlength: 3
-      },
-      apellido : {
-        required: true,
-        minlength: 3
-      },
-      email: {
-        required: true,
-        email: true
-      },
-      //tel : {
-        //required: true,
-        //number: true,
-        //minlength: 8 
-      //},
-      inputAddress: {
-        required: true,
-        minlength: 3
-      }
+    $("#basic-form").validate({
+  rules: {
+    name : {
+      required: true,
+      minlength: 3
+    },
+    apellido : {
+      required: true,
+      minlength: 3
+    },
+    email: {
+      required: true,
+      email: true
+   // },
+    //tel : {
+      //required: true,
+      //number: true,
+      //minlength: 8       
     }
-    
-  });
+  }
+  
 });
+});
+
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
 
 $(document).ready(function(){
-	$("#basic-form").submit(function () {
-		if($("#telefono").val().length < 1) {
-			alert("El teléfono es obligatorio");
-			return false;
-		}
-		if(isNaN($("#telefono").val())) {
-			alert("El teléfono solo debe contener números");
-			return false;
-		}
-		if($("#telefono").val().length < 8) {
-			alert("El teléfono debe tener 8 caracteres. Ej. 99999999 ");
-			return false;
-		}
-		return false;
-	});
+$("#basic-form").submit(function () {
+  if($("#telefono").val().length < 1) {
+    alert("El teléfono es obligatorio");
+    return false;
+  }
+  if(isNaN($("#telefono").val())) {
+    alert("El teléfono solo debe contener números");
+    return false;
+  }
+  if($("#telefono").val().length < 8) {
+    alert("El teléfono debe tener 8 caracteres. Ej. 99999999 ");
+    return false;
+  }
+  return false;
 });
+});
+  </script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/localization/messages_es.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--FORMULARIO-->      
+    <form id="basic-form" action="" method="post">
+      <div class="mb-3 p-2"> 
+          <label for="name">Nombre</label>
+          <input  class="form-control" id="name" name="name" minlength="3" type="text" required> <span>(campo obligatorio mínimo 3 carácteres)</span>
+      </div>    
+      <div class="mb-3 p-2">
+          <label for="apellido">Apellido </label>
+          <input  class="form-control" id="apellido" name="apellido" minlength="3" type="text" required><span>(campo obligatorio mínimo 3 carácteres)</span>
+      </div>
 
-
-    </script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/localization/messages_es.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <form id="basic-form" action="" method="post" class="p-2 bg-light">
-        <p> 
-          <label for="name">Nombre <span>(campo obligatorio)</label>
-          <input class="form-control"id="name" name="name" minlength="3" type="text" required>
-        </p>
-        <p> 
-          <label for="apellido">Apellido <span>(campo obligatorio)</label>
-          <input  class="form-control" id="apellido" name="apellido" minlength="3" type="text" required>
-        </p>
-        <p>
-          <label for="email">E-Mail <span>(campo obligatorio)</span></label>
-          <input class="form-control" id="email" type="email" name="email" required>
-        </p>
-        <p> 
-          <label for="telefono">Teléfono <span>(campo obligatorio)</span></label>
-          <input class="form-control" type="number" name="telefono" id="telefono" minlength="8" size="11" placeholder="99999999"> 
-        </p>
-        <p> 
-          <label for="inputAddress" class="form-label">Dirección<span>(campo obligatorio)</span></label>
-          <input type="text" class="form-control" id="inputAddress" minlength="3" placeholder="Calle 1234 " required>
-        </p>
-<!-- 
-        <div class="form-group">
-          <label for="region" class="form-label">Región</label> 
-          <select  class="form-control" id="regiones" required></select>
+      <div class="mb-3 p-2">  
+          <label for="email">E-Mail</label>
+          <input  class="form-control" id="email" type="email" name="email" required> <span>(campo obligatorio)</span>
         </div>
-        <div class="form-group">
-          <label for="comuna" class="form-label">Comuna</label>
-          <select class="form-control" id="comunas"  required></select>
-        </div>
-        <div> -->
-          <button type="submit" class="btn btn-success " id="submit" value="submit" >Enviar</button>
-          <input  class="btn btn-success" type="reset" value="Limpiar formulario">
         
-      
-    </form>
-   <!--FOOTER-->
-   <footer class="bg-light text-center blank mx-2 ">
-    <div class="container p-4 pb-0">
+        <div class="mb-3 p-2 ">
+          <label for="tel" class="form-label">Teléfono</label>
+          <input class="form-control" id="tel" name="tel" minlength="8" maxlength="12" type="number" placeholder="569 99999999" required>  <span>(campo obligatorio)</span>
+        </div>
+        <div class="mb-3 p-2">
+          <label for="inputAddress" class="form-label">Dirección</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="Calle 1234 ">
+        </div> 
+        
+        
+        <!-- region comuna API-->  
+        <fieldset>
+          <label>Región: </label>
+              <select id="region-avanzado">
+                  <option value="">Seleccione Región</option>
+              </select>
+          <label>Comuna: </label>
+              <select id="comuna-avanzado">
+                  <option value="">Seleccione Comuna</option>
+              </select>
+        </fieldset>
+        <div class="mb-3 p-2">
+          <input id="enviar" class="btn btn-success btn-lg" class="button" type="submit" value="Aceptar" >
+        </div>
+      </div>
+      {% load static %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="{% static 'libs/jquery.selectric.min.js' %}"></script>
+      <script src="{% static 'dist/jquery.georegionalizacion-chile_0.9.min.js' %}"></script>
+      <script>
+  
+          //$('#region').geoRegionalizacion({
+            //  regionDependiente: '#comuna'
+          //});
+          $('#region-avanzado').geoRegionalizacion({
+              regionDependiente: '#comuna-avanzado',
+              onRegionSelect: function(){
+                  console.log($(this).val());
+              },
+              onComunaSelect: function() {
+                  console.log($(this).val());
+              },
+              onCreate: function(){
+                  $('#region-avanzado, #comuna-avanzado').selectric('refresh');
+              }
+          });
+          
+      </script>  
+  </form>
+
+ <!--FOOTER-->
+  <footer class="bg-light text-center blank m-3   ">
+    <div class="container pt-1 pb-0 mx-auto" >
       <section class="">
         <form action="">
           <div class="row d-flex justify-content-center">
@@ -167,7 +196,7 @@ $(document).ready(function(){
               </div>
             </div>
             <div class="col-auto">
-              <button type="submit" class="btn btn-success mb-4">
+              <button type="submit" class="btn btn-success ">
                 Suscribirse
               </button>
             </div>
@@ -177,13 +206,13 @@ $(document).ready(function(){
     </div>
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
       © 2022 Copyright:
-      <a class="text-blue" href="index.html">Cheems Market</a>
+      <a class="text-blue" href="https://mdbootstrap.com/">Cheems Market</a>
     </div>
   </footer>
-  
-      
-      
+    
+  <script  src="js/main.js"></script>
+    
 
-  <script src="js/main.js"></script>
   </body>
 </html>
+</div>
