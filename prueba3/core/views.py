@@ -16,3 +16,6 @@ def contacto(request):
 
 def donaciones(request):
     return render(request, 'core/donaciones.html')
+
+def administrador(request):
+    return render(request, 'core/administrador.html')
