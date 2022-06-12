@@ -17,7 +17,7 @@ def lista_productos(request):
     GET = lista todos los productos
     POST = Agregar registro
     """
-    if request.methos == 'GET':
+    if request.method == 'GET':
         Producto = Producto.objects.all()
         serializer = ProductoSerializers(Producto, many=True)
         return Response(serializer.data)

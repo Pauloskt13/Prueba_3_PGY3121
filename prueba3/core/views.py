@@ -1,4 +1,4 @@
-from urllib import request
+
 from django.shortcuts import redirect, render
 from core.forms import ProductoForm
 from .models import Producto
@@ -23,11 +23,12 @@ def donaciones(request):
 
 
 def administrador(request):
-    productos = Producto.objetcts.all()
+    productos = Producto.objects.all()
 
     datos = {
         'productos' : productos
     }
+    return render(request, 'core/administrador.html', datos)
 
 def agregar_prod(request):
     datos = {
@@ -43,13 +44,12 @@ def agregar_prod(request):
 
     return render(request, 'core/agregar_prod.html', datos)
 
-def modificar_prod(reques, id):
+def modificar_prod(request, id):
     producto = Producto.objects.get(codProducto = id)
 
     datos = {
-        'form':ProductoForm(data=request.POST, instance= producto)
+        'form':ProductoForm(instance= producto )
     }
-    
 
     if request.method == 'POST':
         formulario = ProductoForm(data=request.POST, instance=producto)
@@ -60,12 +60,12 @@ def modificar_prod(reques, id):
     
     return render(request, 'core/agregar_prod.html', datos)
 
-    def modificar_prod(request, id):
-        producto = Producto.objects.get(codProducto = id)
+def modificar_prod(request, id):
+    producto = Producto.objects.get(codProducto = id)
 
-        producto.delete()
+    producto.delete()
 
-        return redirect(to=administrador)
+    return redirect(to=administrador)
 
     
 

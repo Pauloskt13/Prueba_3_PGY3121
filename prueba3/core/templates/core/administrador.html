@@ -21,12 +21,14 @@
                             <td colspan="2">Opciones</td>
                         </tr>
                     </thead>
-                    {% for prod  in prod %}
+                    {% for prod  in Productos %}
                     <tbody>
                         <tr>
-                            <td>{{ prod.patente }}</td>
-                            <td>{{ prod.marca }}</td>
-                            <td>{{ prod.modelo }}</td>
+                            <td>{{ prod.codProducto }}</td>
+                            <td>{{ prod.nombreProducto }}</td>
+                            <td>{{ prod.descripcion }}</td>
+                            <td>{{ prod.stock }}</td>
+                            <td>{{ prod.precio }}</td>
                             <td><a href="{% url 'modificar_prod' prod.codProducto %}">Modificar</a></td>
                             <td><a href="{% url 'modificar_prod' prod.codProducto %}">Eliminar</a></td>
                         </tr>
