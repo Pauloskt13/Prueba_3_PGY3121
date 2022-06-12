@@ -16,7 +16,7 @@ Including another URLconf
 from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path, include
-from core.views import index, nosotros, tienda, contacto, donaciones, administrador
+from core.views import index, nosotros, tienda, contacto, donaciones, administrador, agregar_prod, modificar_prod
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +27,8 @@ urlpatterns = [
     path('contacto.html', contacto,name="contacto"),
     path('donaciones.html', donaciones,name="donaciones"),
     path('administrador.html', administrador,name="administrador"),
+    path('agregar_prod.html', agregar_prod,name="agregar_prod"),
+    path('modificar_prod.html', modificar_prod,name="modificar_prod"),
+    path('api/',include('rest_producto.urls')),
+     
 ]
