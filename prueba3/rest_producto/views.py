@@ -10,8 +10,12 @@ from .serializers import ProductoSerializers
 
 @csrf_exempt
 @api_view(['GET', 'POST'])
-
 def lista_productos(request):
+    """
+    GET = lista todos los productos
+    POST = Agrega registro
+    """
+    
     if request.method == 'GET':
         Producto = Producto.objects.all()
         serializer = ProductoSerializers(Producto, many=True)

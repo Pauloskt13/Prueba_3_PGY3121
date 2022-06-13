@@ -13,7 +13,6 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <td>Foto Producto</td>
                             <td>Cod Producto</td>
                             <td>Nombre Producto</td>
                             <td>Descripcion</td>
@@ -26,15 +25,15 @@
                     {% for p  in productos %}
                     <tbody>
                         <tr>
-                            <td><img>src="{{p.imagen}}"></td>
+                            <!-- <td><img src="{{ p.fotoProd }}"  ></td> -->
                             <td>{{ p.codProducto }}</td>
                             <td>{{ p.nombreProducto }}</td>
                             <td>{{ p.descripcion }}</td>
                             <td>{{ p.stock }}</td>
                             <td>{{ p.precio }}</td>
                             <td>{{ p.categoriaProd}}</td>
-                            <td><a href="modificar_prod.html" >Modificar</a></td>
-                            <td><a href="modificar_prod.html">Eliminar</a></td>
+                            <td><a href="{% url 'modificar_prod' p.codProducto %}">Modificar</a></td>
+                            <td><a href="{% url 'modificar_prod' p.codProducto %}">Eliminar</a></td>
                         </tr>
                     </tbody>
                     {% endfor %}

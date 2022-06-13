@@ -2,6 +2,7 @@ from distutils.command.upload import upload
 from django.db import models
 
 
+
 # Create your models here.
 
 
@@ -13,14 +14,27 @@ class CategoriaProd(models.Model):
         return self.nombreCategoria
 
 class Producto(models.Model):
-    codProducto = models.CharField(max_length=6,primary_key=True, verbose_name='Codigo Producto')
+    codProducto = models.IntegerField(primary_key=True, verbose_name='Codigo Producto')
     nombreProducto = models.CharField(max_length=50, verbose_name="Nombre producto")
     descripcion = models.CharField(max_length=50, verbose_name="Descripccion Producto")
     stock = models.IntegerField(verbose_name="Cantidad Disponible")
     precio = models.IntegerField( verbose_name="Precio Producto")
-    imagen = models.ImageField(upload_to='static/', null = True)
+    fotoProd = models.ImageField(upload_to='static/img/',null=True)
     categoria = models.ForeignKey(CategoriaProd, on_delete=models.CASCADE)
 
 
-    def __str__(self):
+    def __int__(self):
         return self.codProducto
+
+
+
+
+
+
+    
+      
+    
+
+    
+    
+    

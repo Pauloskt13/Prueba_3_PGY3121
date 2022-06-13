@@ -1,7 +1,8 @@
 
-from django.shortcuts import redirect, render
 from core.forms import ProductoForm
 from .models import Producto
+from django.shortcuts import render, redirect  
+
 
 # Create your views here.
 
@@ -45,7 +46,7 @@ def agregar_prod(request):
     if request.method == 'POST':
         formulario = ProductoForm(request.POST)
 
-        if formulario.is_valid:
+        if  formulario.is_valid:
             formulario.save()
             datos['mensaje'] = 'Producto Guardado Correctamente'
 
@@ -73,6 +74,8 @@ def eliminar_prod(request, id):
     producto.delete()
 
     return redirect(to=administrador)
+
+
 
 
 

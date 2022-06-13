@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_producto',
     
+    
 ]
 
 MIDDLEWARE = [
@@ -121,7 +122,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-BASE_DIR = 'tienda/statics'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
