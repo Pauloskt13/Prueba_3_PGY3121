@@ -33,7 +33,7 @@
                             <td>{{ p.precio }}</td>
                             <td>{{ p.categoriaProd}}</td>
                             <td><a href="{% url 'modificar_prod' p.codProducto %}">Modificar</a></td>
-                            <td><a href="{% url 'modificar_prod' p.codProducto %}">Eliminar</a></td>
+                            <td><a href="{% url 'eliminar_prod' p.codProducto %}">Eliminar</a></td>
                         </tr>
                     </tbody>
                     {% endfor %}
