@@ -13,24 +13,26 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <td>codProducto</td>
-                            <td>nombreProducto</td>
-                            <td>descripcion</td>
-                            <td>stock</td>
-                            <td>precio</td>
+                            <td>Cod Producto</td>
+                            <td>Nombre Producto</td>
+                            <td>Descripcion</td>
+                            <td>Stock</td>
+                            <td>Precio</td>
+                            <td>Categoria</td>
                             <td colspan="2">Opciones</td>
                         </tr>
                     </thead>
-                    {% for prod  in Productos %}
+                    {% for p  in productos %}
                     <tbody>
                         <tr>
-                            <td>{{ prod.codProducto }}</td>
-                            <td>{{ prod.nombreProducto }}</td>
-                            <td>{{ prod.descripcion }}</td>
-                            <td>{{ prod.stock }}</td>
-                            <td>{{ prod.precio }}</td>
-                            <td><a href="{% url 'modificar_prod' prod.codProducto %}">Modificar</a></td>
-                            <td><a href="{% url 'modificar_prod' prod.codProducto %}">Eliminar</a></td>
+                            <td>{{ p.codProducto }}</td>
+                            <td>{{ p.nombreProducto }}</td>
+                            <td>{{ p.descripcion }}</td>
+                            <td>{{ p.stock }}</td>
+                            <td>{{ p.precio }}</td>
+                            <td>{{ p.categoriaProd}}</td>
+                            <td><a href="modificar_prod.html" >Modificar</a></td>
+                            <td><a href="modificar_prod.html">Eliminar</a></td>
                         </tr>
                     </tbody>
                     {% endfor %}

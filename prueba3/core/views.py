@@ -20,7 +20,7 @@ def contacto(request):
 def donaciones(request):
     return render(request, 'core/donaciones.html')
 
-
+#funciones administrador 
 
 def administrador(request):
     productos = Producto.objects.all()
@@ -58,9 +58,9 @@ def modificar_prod(request, id):
              formulario.save()
              datos['mensaje'] = 'Producto Modificado Correctamente'
     
-    return render(request, 'core/agregar_prod.html', datos)
+    return render(request, 'core/modificar_prod.html', datos)
 
-def modificar_prod(request, id):
+def eliminar_prod(request, id):
     producto = Producto.objects.get(codProducto = id)
 
     producto.delete()
