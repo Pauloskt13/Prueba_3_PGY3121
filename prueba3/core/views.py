@@ -11,8 +11,15 @@ def index(request):
 def nosotros(request):
     return render(request, 'core/nosotros.html')
     
+
 def tienda(request):
-    return render(request, 'core/tienda.html')
+    Productos = Producto.objects.all()
+
+    data={
+        'productos':Productos
+    }
+
+    return render(request, 'core/tienda.html', data)
 
 def contacto(request):
     return render(request, 'core/contacto.html')
@@ -67,5 +74,6 @@ def eliminar_prod(request, id):
 
     return redirect(to=administrador)
 
-    
+
+
 

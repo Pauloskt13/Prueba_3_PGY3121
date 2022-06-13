@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from xml.etree.ElementInclude import include
+from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from core.views import index, nosotros, tienda, contacto, donaciones, administrador, agregar_prod, modificar_prod

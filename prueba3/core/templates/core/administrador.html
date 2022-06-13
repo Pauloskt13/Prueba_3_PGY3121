@@ -13,6 +13,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <td>Foto Producto</td>
                             <td>Cod Producto</td>
                             <td>Nombre Producto</td>
                             <td>Descripcion</td>
@@ -25,6 +26,7 @@
                     {% for p  in productos %}
                     <tbody>
                         <tr>
+                            <td><img>src="{{p.imagen}}"></td>
                             <td>{{ p.codProducto }}</td>
                             <td>{{ p.nombreProducto }}</td>
                             <td>{{ p.descripcion }}</td>
