@@ -1,11 +1,14 @@
 
-from core.forms import ProductoForm
+from core.forms import ProductoForm 
 from .models import Producto
 from django.shortcuts import render, redirect  
+from distutils.command.upload import upload
+from asyncio.windows_events import NULL
 
 
 # Create your views here.
 
+# Vistas Secciones 
 def index(request):
     return render(request, 'core/index.html')
 
@@ -26,9 +29,12 @@ def contacto(request):
     return render(request, 'core/contacto.html')
 
 def donaciones(request):
-    return render(request, 'core/donaciones.html')
+    
+    
+    return render(request, 'core/donaciones.html', data)
 
-#funciones administrador 
+
+#VISTAS DE ADMINISTRADOR PRODUCTOS  
 
 def administrador(request):
     productos = Producto.objects.all()
@@ -36,6 +42,8 @@ def administrador(request):
     datos = {
         'productos' : productos
     }
+
+
     return render(request, 'core/administrador.html', datos)
 
 def agregar_prod(request):
@@ -46,8 +54,8 @@ def agregar_prod(request):
     if request.method == 'POST':
         formulario = ProductoForm(request.POST)
 
-        if  formulario.is_valid:
-            formulario.save()
+        if  formulario.is_valid():
+            
             datos['mensaje'] = 'Producto Guardado Correctamente'
 
     return render(request, 'core/agregar_prod.html', datos)
@@ -74,9 +82,5 @@ def eliminar_prod(request, id):
     producto.delete()
 
     return redirect(to=administrador)
-
-
-
-
 
 

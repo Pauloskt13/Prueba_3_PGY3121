@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('descripcion',models.CharField(max_length=50, verbose_name="Descripccion Producto")),
                 ('stock',models.IntegerField( verbose_name="Cantidad Disponible")),
                 ('precio',models.IntegerField( verbose_name="Precio Producto")),
-                ('fotoProd', models.ImageField(upload_to='static/img/')
+                ('fotoProd', models.ImageField(upload_to='static/img/')),
                 ('categoria',models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.CategoriaProd')),
         
                

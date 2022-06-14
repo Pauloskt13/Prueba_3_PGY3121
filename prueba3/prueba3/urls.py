@@ -30,7 +30,7 @@ urlpatterns = [
     path('administrador.html', administrador,name="administrador"),
     path('agregar_prod.html', agregar_prod,name="agregar_prod"),
     path('modificar_prod/<id>', modificar_prod,name="modificar_prod"),
-     path('elinminar_prod/<id>', eliminar_prod,name="eliminar_prod"),
+    path('eliminar_prod/<id>', eliminar_prod,name="eliminar_prod"),
     path('api/',include('rest_producto.urls')),
      
 ]

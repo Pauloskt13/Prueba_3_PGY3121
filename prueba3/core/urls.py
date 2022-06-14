@@ -1,5 +1,5 @@
 from django.urls import path 
-from .views import index,nosotros, tienda, contacto, donaciones, administrador,agregar_prod,modificar_prod
+from .views import eliminar_prod, index,nosotros, tienda, contacto, donaciones, administrador,agregar_prod,modificar_prod
 
 urlpatterns = [
     path('', index,name="index"),
@@ -10,5 +10,5 @@ urlpatterns = [
     path('', administrador,name="administrador"),
     path('', agregar_prod,name="agregar_prod"),
     path('', modificar_prod,name="modificar_prod"),
-
+    path('', eliminar_prod,name="eliminar_prod"),
 ]
