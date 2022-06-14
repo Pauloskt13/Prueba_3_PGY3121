@@ -18,16 +18,14 @@
                             <td>Cod Producto</td>
                             <td>Nombre Producto</td>
                             <td>Descripcion</td>
-                            <td>Stock</td>
-                            <td>Precio</td>
-                            <td>Categoria</td>
+                            <td>Email</td>
+                            <td>Telefono</td>
                             <td colspan="2">Opciones</td>
                         </tr>
                     </thead>
                     {% for p  in productos %}
                     <tbody>
                         <tr>
-                            <td><img src="{{ p.imagenProd }}"  ></td>
                             <td>{{ p.codProducto }}</td>
                             <td>{{ p.nombreProducto }}</td>
                             <td>{{ p.descripcion }}</td>
@@ -42,7 +40,44 @@
                 </table>
                 <a href="{% url 'agregar_prod' %}">Nuevo Producto</a>
             </div>
-            
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <h1>Listado de Fundaciones</h1>
+            </div>
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td>Id Fundacion</td>
+                            <td>Nombre Fundacion</td>
+                            <td>Direccion</td>
+                            <td>Stock</td>
+                            <td>Precio</td>
+                            <td>Categoria</td>
+                            <td colspan="2">Opciones</td>
+                        </tr>
+                    </thead>
+                    {% for f  in fundaciones %}
+                    <tbody>
+                        <tr>
+                            <td>{{ f.idFundacion }}</td>
+                            <td>{{ f.nomFundacion }}</td>
+                            <td>{{ f.dFundacion }}</td>
+                            <td>{{ f.emailFundacion }}</td>
+                            <td>{{ f.telFundacion }}</td>
+                            <td><a href="{% url 'modificar_fund' f.idFundacion %}">Modificar</a></td>
+                            <td><a href="{% url 'eliminar_fund' f.idFundacion %}">Eliminar</a></td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+                <a href="{% url 'agregar_fund' %}">Nueva Fundacion</a>
+            </div>
+        </div>
+
+       
         
     </body>
 </html>

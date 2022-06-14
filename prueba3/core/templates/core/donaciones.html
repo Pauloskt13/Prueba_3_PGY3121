@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static%}
 <html>
+  
     <head>
         <meta charset="UTF-8">
         
@@ -63,10 +64,9 @@
       <div class="col">
         <div class="card ">
           <div class="card-body">
-            <!-- <img src="{{ p.fotoProd }}"> -->
-            <h5 class="card-title">{{f.nombreFundacion | title }}</h5>
-            <p class="card-text">Direccion: {{f.direccionFundacion | capfirst}}</p>
-            <p class="card-text">Telefono: {{f.telefonoFundacion | capfirst}}</p>
+            <h5 class="card-title">{{f.nomFundacion | title }}</h5>
+            <p class="card-text">Direccion: {{f.dFundacion | capfirst}}</p>
+            <p class="card-text">Telefono: {{f.telFundacion | capfirst}}</p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">{{f.emailFundacion | capfirst}} </li>
@@ -76,92 +76,8 @@
         </div>
         {% endfor %}
       </div>
+     
     
-    <!--FORMULARIO-->
-
-    <h1 class="display-5 bg- text-center text-black p-6"><strong class="justify-content-center">HAZ TU DONACIÓN</strong><br></h1>
-      <p class="text-success d-flex justify-content-center fs-4 mt-2 bg-light">Completa el siguiente formulario</p> 
-
-    <div class="container-fluid ml-4-mr-4">
-      <form class="row g-3 bg-light mt-2 mb-3 pt-1 pb-2" id="Formulario">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" placeholder="Nombre">
-          <span style="color:red"><small></small></span>
-          <div id="emailHelp" class="form-text">*Campo obligatorio</div>
-          <div class="invalid-feedback">
-            Complete el Campo
-          </div>
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label" >Apellido</label>
-          <input type="text" class="form-control" placeholder="Apellido" id="apellido">
-          <span style="color:red"><small></small></span>
-          <div id="emailHelp" class="form-text">*Campo obligatorio</div>
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">Dirección</label>
-          <input type="text" class="form-control" id="direccion" placeholder="Alameda 123">
-        </div>
-        <!--<div class="col-12">
-          <label for="inputAddress2" class="form-label">Adicional</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Departamento , Oficina , Otro">
-        </div>-->
-        <div class="col-mb-4">
-          <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="a@a.cl">
-          <span style="color:red"><small></small></span>
-          <div id="emailHelp" class="form-text">*Campo obligatorio</div>
-        </div>
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">Tipo Cuenta</label>
-          <select id="inputState" class="form-select">
-            <option selected>Selecciona</option>
-            <option>Cuenta Corriente</option>
-            <option>Cuesta Vista</option>
-          </select>
-        </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">Banco</label>
-          <select id="inputState" class="form-select">
-            <option selected>Selecciona</option>
-            <option>Banco Estado</option>
-            <option>Banco Santander</option>
-            <option>Banco de Chile</option>
-            <option>Banco Itaú</option>
-          </select>
-          <div id="validationInputState" class="invalid-feedback">
-            Selecciona un Banco
-          </div>
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Fundaciones</label>
-          <select id="inputState" class="form-select">
-            <option selected>Selecciona</option>
-            <option>Callejeros buscan hogar</option>
-            <option>Julieta</option>
-            <option>Garras & patas</option>
-            <option>Alma animal</option>
-          </select>
-          <div id="validationZip" class="invalid-feedback">
-            Seleciona una Fundación
-          </div>
-        </div>
-       
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Confirmar
-            </label>
-          </div>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-success">Donar</button>
-          <input class="btn btn-success" type="reset" value="Limpiar formulario">
-        </div>
-      </form>
-    </div>
 
  <!--FOOTER-->
  <footer class="bg-light text-center blank mx-2">

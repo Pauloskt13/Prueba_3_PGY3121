@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_producto',
 
+
     
     
 ]
@@ -123,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-IMG_URL = '/img/'
+IMG_URL = 'img/'
 
 
 # Default primary key field type
