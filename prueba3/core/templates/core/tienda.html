@@ -60,11 +60,11 @@
         <div class="card ">
           <div class="card-body">
             <img src="{{ p.imagenProd }}" alt="..." class="img-thumbnail">
-            <h5 class="card-title">Nombre: {{p.nombreProducto | title }}</h5>
+            <h5 class="card-title">{{p.nombreProducto | title }}</h5>
+            <p class="card-text">Descripción: {{p.descripcion | capfirst}}</p>
+            <p class="card-text">Codigo: {{p.codProducto | capfirst}}</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Categoria: {{p.categoria | capfirst}}</li>
-            <li class="list-group-item">Descripción: {{p.descripcion | capfirst}}</li>
             <li class="list-group-item">{{p.stock | capfirst}} Unidades</li>
             <li class="list-group-item">$ {{p.precio | capfirst}}</li>
           </ul>

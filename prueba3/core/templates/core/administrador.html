@@ -4,34 +4,37 @@
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="{% static "css/main.css" %} " rel="stylesheet">
     </head>
     <body>
-        <div class="container">
+        <body class="conteimner fluid" background="{% static "img/background_04.jpg" %} "></body>
             <div class="row">
                 <h1>Listado de Productos</h1>
             </div>
-            <div class="row">
-                <table class="table table-striped">
+            <form action="" method="post" enctype="multipart/form-data"> 
+                <table class="table table-striped" id="tablaProd">
                     <thead>
                         <tr>
-                            <td>Imagen Producto</td>
                             <td>Cod Producto</td>
                             <td>Nombre Producto</td>
                             <td>Descripcion</td>
-                            <td>Email</td>
-                            <td>Telefono</td>
-                            <td colspan="2">Opciones</td>
+                            <td>Stock</td>
+                            <td>Precio</td>
+                            <td>Imagen Producto</td>
+                                                        
+                            <td colspan="2"> Opciones: </td>
                         </tr>
-                    </thead>
+                    </thead></form>
                     {% for p  in productos %}
                     <tbody>
                         <tr>
-                            <td><img src="{{p.imagenProd}}"></td>
                             <td>{{ p.codProducto }}</td>
                             <td>{{ p.nombreProducto }}</td>
                             <td>{{ p.descripcion }}</td>
                             <td>{{ p.stock }}</td>
                             <td>{{ p.precio }}</td>
+                            <td><img src= "../{{p.imagenProd }}" class="m-auto w-50"></td>
+                            
                             <td>{{ p.categoriaProd}}</td>
                             <td><a href="{% url 'modificar_prod' p.codProducto %}">Modificar</a></td>
                             <td><a href="{% url 'eliminar_prod' p.codProducto %}">Eliminar</a></td>
@@ -39,46 +42,9 @@
                     </tbody>
                     {% endfor %}
                 </table>
-                <a href="{% url 'agregar_prod' %}">Nuevo Producto</a>
+                <a href="/agregar_prod">Nuevo Producto</a>
             </div>
-        </div>
-        
-        <div class="container">
-            <div class="row">
-                <h1>Listado de Fundaciones</h1>
-            </div>
-            <div class="row">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <td>Id Fundacion</td>
-                            <td>Nombre Fundacion</td>
-                            <td>Direccion</td>
-                            <td>Stock</td>
-                            <td>Precio</td>
-                            <td>Categoria</td>
-                            <td colspan="2">Opciones</td>
-                        </tr>
-                    </thead>
-                    {% for f  in fundaciones %}
-                    <tbody>
-                        <tr>
-                            <td>{{ f.idFundacion }}</td>
-                            <td>{{ f.nomFundacion }}</td>
-                            <td>{{ f.dFundacion }}</td>
-                            <td>{{ f.emailFundacion }}</td>
-                            <td>{{ f.telFundacion }}</td>
-                            <td><a href="{% url 'modificar_fund' f.idFundacion %}">Modificar</a></td>
-                            <td><a href="{% url 'eliminar_fund' f.idFundacion %}">Eliminar</a></td>
-                        </tr>
-                    </tbody>
-                    {% endfor %}
-                </table>
-                <a href="{% url 'agregar_fund' %}">Nueva Fundacion</a>
-            </div>
-        </div>
-
-       
+            
         
     </body>
 </html>
