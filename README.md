@@ -18,5 +18,5 @@ Docente:
 ** Para acceder al template administrador es necesario esta ruta http://127.0.0.1:8000/administrador.html **
 
 
-Notas: CRUD Completo , sin poder agregar imagen de producto
-
+Matilde: El crud del producto funciona, solo le falta agregar la imagen, el crud de fundaciones(pagina donaciones) se sobreescribe osea 
+muestra una de las 2 ( fundaciones o tienda).

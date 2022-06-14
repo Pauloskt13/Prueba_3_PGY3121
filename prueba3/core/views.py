@@ -43,9 +43,15 @@ def donaciones(request):
 
 def administrador(request):
     productos = Producto.objects.all()
+    fundaciones = Fundacion.objects.all()
+
+    datos = {
+        'fundaciones' : fundaciones
+    }
 
     datos = {
         'productos' : productos
+
     }
     return render(request, 'core/administrador.html', datos)
 
@@ -87,14 +93,7 @@ def eliminar_prod(request, id):
 
     return redirect(to=administrador)
 
-
-# def administrador(request):
-#     fundaciones = Fundacion.objects.all()
-
-#     datos = {
-#         'fundaciones' : fundaciones
-#     }
-    return render(request, 'core/administrador.html', datos)
+#Fundaciones 
 
 def agregar_fund(request):
     datos = {

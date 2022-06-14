@@ -124,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-IMG_URL = 'img/'
+
 
 
 # Default primary key field type
