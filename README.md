@@ -15,7 +15,7 @@ Docente:
 
 Notas al Profesor 
 
--** Trabajo Final en Branch: "Ramita" **
+<b>Trabajo Final en Branch: "Ramita"<b>
  - Credenciales administrador 
      user : prueba -- psw: prueba 
  - Para acceder al template administrador es necesario esta ruta : /administrador.html 
