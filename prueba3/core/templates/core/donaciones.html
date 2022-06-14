@@ -55,139 +55,27 @@
       <h1 class="display-5 bg- text-center text-black p-6"><strong class="justify-content-center">ELIGE TU FUNDACIÓN</strong><br></h1>
         <p class="text-success d-flex justify-content-center fs-4 mt-2 bg-light">Nuestras fundaciones </p> 
     </br>
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col">
-          <div class="card">
-            <img src="{% static "img/fundacion_1.png" %} " class="card-img-top" alt="Fundacion 1">
-            <div class="card-body">
-              <h5 class="card-title">Fundación</h5>
-              <p class="card-text">Callejeros buscan hogar</p>
-              <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#popFun1">
-                Ver más
-                </button>
-  
-             <!-- Modal -->
-            <div class="modal fade" id="popFun1" tabindex="-1" aria-labelledby="popFun1Label" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="popFun1Label">Fundación Callejeros</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                Más de 5.000 donaciones recibidas en el último año
-                </div>
-                <img src="{% static "img/fundacion_1.png" %} " class="card-img-top" alt="Fundacion 1">
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Donar</button>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
+
+    <!--FUNDACIONES -->
+    
+    <div class="row row-cols-1 row-cols-md-4 g-4 bg-">
+      {%for f in fundacion %}
+      <div class="col">
+        <div class="card ">
+          <div class="card-body">
+            <!-- <img src="{{ p.fotoProd }}"> -->
+            <h5 class="card-title">{{f.nombreFundacion | title }}</h5>
+            <p class="card-text">Direccion: {{f.direccionFundacion | capfirst}}</p>
+            <p class="card-text">Telefono: {{f.telefonoFundacion | capfirst}}</p>
           </div>
-          </div>
-        <div class="col">
-          <div class="card">
-            <img src="{% static "img/fundacion_2.png" %} " class="card-img-top" alt="Fundación Julieta">
-            <div class="card-body">
-              <h5 class="card-title">Fundación</h5>
-              <p class="card-text">Julieta </p>
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#popFun2">
-                Ver más
-                </button>
-  
-             <!-- Modal -->
-            <div class="modal fade" id="popFun2" tabindex="-1" aria-labelledby="popFun2Label" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="popFun2label">Fundación</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                Más de 5.000 donaciones recibidas en el último año
-                </div>
-                <img src="{% static "img/fundacion_2.png" %} " class="card-img-top" alt="Fundación Julieta">
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Agregar</button>
-                </div>
-            </div>
-            </div>
-        </div>
-            </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{f.emailFundacion | capfirst}} </li>
+            <li class="list-group-item">Gracias!</li>
+          </ul>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <img src="{% static "img/fundacion_3.png" %} " class="card-img-top" alt="fundación 3">
-            <div class="card-body">
-              <h5 class="card-title">Fundación </h5>
-              <p class="card-text">Garras & patas</p>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#popFun3">
-                Ver más
-                </button>
-  
-             <!-- Modal -->
-            <div class="modal fade" id="popFun3" tabindex="-1" aria-labelledby="popFun3Label" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="popFun3Label">Fundación</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Más de 5.000 donaciones recibidas en el último año.
-                </div>
-                <img src="{% static "img/fundacion_3.png" %} " class="card-img-top" alt="fundación 3">
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Agregar</button>
-                </div>
-            </div>
-            </div>
-        </div>  
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="{% static "img/fundacion_4.png" %} " class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Fundación</h5>
-              <p class="card-text">Alma animal</p>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#popFun4">
-                Ver más
-                </button>
-            <!-- Modal -->
-            <div class="modal fade" id="popFun4" tabindex="-1" aria-labelledby="popFun4Label" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="popFun4Label">Fundación</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Más de 5.000 donaciones recibidas en el último año.
-                    </div>
-                    <img src="{% static "img/fundacion_4.png" %} " class="card-img-top" alt="funfacion Alma Animal">
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Agregar</button>
-                    </div>
-                </div>
-                </div>
-            </div>     
-            </div>
-        </div>
-        </div>
-    </div> 
+        {% endfor %}
+      </div>
     
     <!--FORMULARIO-->
 
