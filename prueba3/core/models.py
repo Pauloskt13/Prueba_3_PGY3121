@@ -1,6 +1,10 @@
 from distutils.command.upload import upload
 from pyexpat import model
 from django.db import models
+from asyncio.windows_events import NULL
+from distutils.command.upload import upload
+from tkinter.tix import INCREASING
+
 
 
 
@@ -20,7 +24,7 @@ class Producto(models.Model):
     descripcion = models.CharField(max_length=50, verbose_name="Descripccion Producto")
     stock = models.IntegerField(verbose_name="Cantidad Disponible")
     precio = models.IntegerField( verbose_name="Precio Producto")
-    imagenProd = models.ImageField(upload_to='static/img/')
+    imagenProd = models.ImageField(upload_to='static/img',null=True)
     categoria = models.ForeignKey(CategoriaProd, on_delete=models.CASCADE)
 
     def __int__(self):

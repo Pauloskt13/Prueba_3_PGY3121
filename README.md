@@ -17,5 +17,6 @@ Docente:
 ** Credenciales administrador : user : prueba -- psw: prueba 
 ** Para acceder al template administrador es necesario esta ruta http://127.0.0.1:8000/administrador.html **
 
-12-06 :
-** CRUD incompleto se puede agregar productos pero no eliminar ni modificar ** 
+
+Notas: CRUD Completo , sin poder agregar imagen de producto
+

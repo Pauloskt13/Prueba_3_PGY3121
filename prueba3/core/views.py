@@ -54,9 +54,9 @@ def agregar_prod(request):
     if request.method == 'POST':
         formulario = ProductoForm(request.POST)
 
-        if  formulario.is_valid():
-            
-            datos['mensaje'] = 'Producto Guardado Correctamente'
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = 'Guardado Correctamente'
 
     return render(request, 'core/agregar_prod.html', datos)
 
