@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 
 <html>
+<<<<<<< HEAD
   {% load static%}
+=======
+>>>>>>> 8e86cbdd670e61d734f57ba02f3b908bb4073ee0
     <head>
         <meta charset="UTF-8">
         
@@ -64,6 +67,7 @@
       <div class="col">
         <div class="card ">
           <div class="card-body">
+<<<<<<< HEAD
             {% if f.imgFundacion %}
             <img src="{{ f.imgFundacion.url }}" class="m-auto w-100"></td>
             {% else  %}
@@ -74,6 +78,12 @@
             <p class="card-text">Direccion: {{f.dirFundacion | capfirst}}</p>
             <p class="card-text">Telefono: {{f.telFundacion | capfirst}}</p>
 
+=======
+            <!-- <img src="{{ p.fotoProd }}"> -->
+            <h5 class="card-title">{{f.nombreFundacion | title }}</h5>
+            <p class="card-text">Direccion: {{f.direccionFundacion | capfirst}}</p>
+            <p class="card-text">Telefono: {{f.telefonoFundacion | capfirst}}</p>
+>>>>>>> 8e86cbdd670e61d734f57ba02f3b908bb4073ee0
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Correo Electronico: {{f.mailFundacion | capfirst}} </li>
@@ -86,7 +96,11 @@
     <!--FORMULARIO-->
 
     <h1 class="display-5 bg- text-center text-black p-6"><strong class="justify-content-center">HAZ TU DONACIÓN</strong><br></h1>
+<<<<<<< HEAD
       <p class="text-success d-flex justify-content-center fs-4 mt-2 bg-light">Completa el siguiente formulario, hazte socio y recibe un 5% de descuento en tus compras</p> 
+=======
+      <p class="text-success d-flex justify-content-center fs-4 mt-2 bg-light">Completa el siguiente formulario</p> 
+>>>>>>> 8e86cbdd670e61d734f57ba02f3b908bb4073ee0
 
     <div class="container-fluid ml-4-mr-4">
       <form class="row g-3 bg-light mt-2 mb-3 pt-1 pb-2" id="Formulario">

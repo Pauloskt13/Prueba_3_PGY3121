@@ -14,9 +14,10 @@ Docente:
 
 
 Notas al Profesor 
- - Credenciales administrador : user : prueba -- psw: prueba 
- - Para acceder al template administrador es necesario esta ruta : /administrador.html 
- -Crud de tienda creado , no posible añadir fotos desde administrador html, si desde admin Django.
- - Crud de fundaciones sobreescribe al de tienda 
- - Formulario contacto no completado. 
 
+<b>Trabajo Final en Branch: "Ramita"<b>
+ - Credenciales administrador 
+     user : prueba -- psw: prueba 
+ - Para acceder al template administrador es necesario esta ruta : /administrador.html 
+ - Lista de personas que completan el formulario de contacto se visualiza desde administrador.html
+ 
