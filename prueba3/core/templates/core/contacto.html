@@ -61,121 +61,26 @@
     <p>    </p>
     
     <!--FORMULARIO-->
-    <script>
-      $(document).ready(function() {
-
-       $("#basic-form").validate({
-    rules: {
-      name : {
-        required: true,
-        minlength: 3
-      },
-      apellido : {
-        required: true,
-        minlength: 3
-      },
-      email: {
-        required: true,
-        email: true
-      },
-      //tel : {
-        //required: true,
-        //number: true,
-        //minlength: 8 
-      //},
-      inputAddress: {
-        required: true,
-        minlength: 3
-      }
-    }
-    
-  });
-});
-
-$(document).ready(function(){
-    $("#basic-form").submit(function () {
-        if($("#telefono").val().length < 1) {
-            alert("El teléfono es obligatorio");
-            return false;
-        }
-        if(isNaN($("#telefono").val())) {
-            alert("El teléfono solo debe contener números");
-            return false;
-        }
-        if($("#telefono").val().length < 8) {
-            alert("El teléfono debe tener 8 caracteres. Ej. 99999999 ");
-            return false;
-        }
-        return false;
-    });
-}); 
-
 </script>
     <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/localization/messages_es.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <div>
     
     <form id="basic-form" action="" method="post">
-        <p> 
-          <label for="name">Nombre <span>(campo obligatorio)</label>
-          <input id="name" name="name" minlength="3" type="text" required>
-        </p>
-        <p> 
-          <label for="apellido">Apellido <span>(campo obligatorio)</label>
-          <input id="apellido" name="apellido" minlength="3" type="text" required>
-        </p>
-        <p>
-          <label for="email">E-Mail <span>(campo obligatorio)</span></label>
-          <input id="email" type="email" name="email" required>
-        </p>
-        <p> 
-          <label for="telefono">Teléfono <span>(campo obligatorio)</span></label>
-          <input type="number" name="telefono" id="telefono" minlength="8" size="11" placeholder="99999999"> 
-        </p>
-        <p> 
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">Dirección<span>(campo obligatorio)</span></label>
-          <input type="text" class="form-control" id="inputAddress" minlength="3" placeholder="Calle 1234 " required>
-        </div>
-        </p>
       
-     
-      <fieldset>
-      <label>Región: </label>
-          <select id="region-avanzado">
-              <option value="">Seleccione Región</option>
-          </select>
-      <label>Comuna: </label>
-          <select id="comuna-avanzado">
-              <option value="">Seleccione Comuna</option>
-          </select>
+      {% csrf_token %}
+      {{ form.as_p }}
+          
+          <br></br>
       <button type="submit" class="btn btn-primary" id="submit" value="submit">Enviar</button>
       </div>    
       </fieldset>
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
           <script src="{% static "libs/jquery.selectric.min.js"  %} "></script>
           <script src="{% static "dist/jquery.georegionalizacion-chile_0.9.min.js" %} "></script>
-          <script>
-      
-              //$('#region').geoRegionalizacion({
-                //  regionDependiente: '#comuna'
-              //});
-              $('#region-avanzado').geoRegionalizacion({
-                  regionDependiente: '#comuna-avanzado',
-                  onRegionSelect: function(){
-                      console.log($(this).val());
-                  },
-                  onComunaSelect: function() {
-                      console.log($(this).val());
-                  },
-                  onCreate: function(){
-                      $('#region-avanzado, #comuna-avanzado').selectric('refresh');
-                  }
-              });
-              
-          </script>
+   
           
-    
+          {{mensaje}}
   </form>
    <!--FOOTER-->
    <footer class="bg-light text-center blank mx-2 ">

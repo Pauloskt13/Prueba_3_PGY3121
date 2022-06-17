@@ -59,7 +59,10 @@
       <div class="col">
         <div class="card ">
           <div class="card-body">
-            <img src="{{ p.imagenProd }}" alt="..." class="img-thumbnail">
+            {% if p.imagenProd %}
+            <img src="{{ p.imagenProd.url }}" alt="..." class="img-thumbnail">
+            {% else  %} <div> imagen no disponible</div>
+                                        {% endif %}
             <h5 class="card-title">{{p.nombreProducto | title }}</h5>
             <p class="card-text">Descripción: {{p.descripcion | capfirst}}</p>
             <p class="card-text">Codigo: {{p.codProducto | capfirst}}</p>
