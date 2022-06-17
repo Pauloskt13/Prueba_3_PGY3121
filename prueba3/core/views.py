@@ -1,10 +1,12 @@
-
-from core.forms import ProductoForm , FundacionForm
-from .models import Producto, Fundacion
+from core.forms import ProductoForm 
+from core.forms import FundacionForm
+from .models import Producto, Contacto , Fundacion
 from django.shortcuts import render, redirect  
 from distutils.command.upload import upload
 from asyncio.windows_events import NULL
-
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
+from .forms import ContactoForm
 
 # Create your views here.
 
@@ -26,49 +28,67 @@ def tienda(request):
     return render(request, 'core/tienda.html', data)
 
 def contacto(request):
-    return render(request, 'core/contacto.html')
+    data = {
+        'form': ContactoForm()
+    }
+
+    if request.method == 'POST':
+        formulario = ContactoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "formulario enviado"
+        else:
+            data["form"] = formulario
+
+    return render(request, 'core/contacto.html', data)
 
 def donaciones(request):
-    Fundaciones = Fundacion.objects.all()
+    fundaciones = Fundacion.objects.all()
 
-    datos={
-        'fundaciones': Fundaciones
+    data={
+        'fundaciones':fundaciones
     }
-    
-    
-    return render(request, 'core/donaciones.html', datos)
+
+    return render(request, 'core/donaciones.html', data)
 
 
 #VISTAS DE ADMINISTRADOR PRODUCTOS  
 
 def administrador(request):
     productos = Producto.objects.all()
+    #producto.imagenProd = request.FILE.get('txtImagen')
     fundaciones = Fundacion.objects.all()
-
-    datos = {
-        'fundaciones' : fundaciones
-    }
+    
 
     datos = {
         'productos' : productos
+            }
+    return render(request, 'core/administrador.html', datos )
 
-    }
-    return render(request, 'core/administrador.html', datos)
 
+#VISTAS PRODUCTO
 
 def agregar_prod(request):
+    productoForm = ProductoForm( )
     datos = {
-        'form' : ProductoForm
+        'form' : productoForm
     }
 
     if request.method == 'POST':
-        formulario = ProductoForm(request.POST)
+        
+        formulario = ProductoForm(request.POST, request.FILES)
 
-        if formulario.is_valid():
+        if formulario.is_valid:
+            
             formulario.save()
-            datos['mensaje'] = 'Guardado Correctamente'
 
-    return render(request, 'core/agregar_prod.html', datos)
+            datos['mensaje'] = "El producto ha sido agregado correctamente!"
+        
+            return render(request, "core/agregar_prod.html", datos)
+
+    return render(request, "core/agregar_prod.html", datos)
+
+
 
 def modificar_prod(request, id):
     producto = Producto.objects.get(codProducto = id)
@@ -93,42 +113,62 @@ def eliminar_prod(request, id):
 
     return redirect(to=administrador)
 
-#Fundaciones 
 
-def agregar_fund(request):
-    datos = {
-        'form' : FundacionForm
+#VISTA LISTA DE PERSONAS QUE COMPLETAN EL FORMULARIO
+def lista_personas(request):
+    contacto = Contacto.objects.all()
+    contexto = {'contactos': contacto}
+    return render(request, 'core/lista_personas.html', contexto)
+
+
+###     VISTA DE FUNDACION   ####
+
+def admin_fund(request):
+    fundaciones = Fundacion.objects.all()
+    #producto.imagenProd = request.FILE.get('txtImagen')
+    
+    data = {
+        'fundaciones' : fundaciones
+            }
+    return render(request, 'core/admin_fund.html', data)
+
+def agregar_fundacion(request):
+    fundacionForm = FundacionForm( )
+    data = {
+        'form' : fundacionForm
     }
 
     if request.method == 'POST':
-        formulario_fundacion = FundacionForm(request.POST)
+        
+        formulario = FundacionForm(request.POST, request.FILES)
+        if formulario.is_valid:
+            formulario.save()
+            data['mensaje'] = "La fundación ha sido agregado correctamente!"
+        
+            return render(request, "core/agregar_fundacion.html", data)
 
-        if formulario_fundacion.is_valid():
-            formulario_fundacion.save()
-            datos['mensaje'] = 'Guardado Correctamente'
+    return render(request, "core/agregar_fundacion.html", data)
 
-    return render(request, 'core/agregar_fund.html', datos)
 
-def modificar_fund(request, id):
-    fundacion = Fundacion.objects.get(idFundacion = id)
+def modificar_fundacion(request, id):
+    fundacion = Fundacion.objects.get(codFundacion = id)
 
-    datos = {
+    data = {
         'form':FundacionForm(instance= fundacion )
     }
 
     if request.method == 'POST':
-        formulario_fundacion = FundacionForm(data=request.POST, instance=fundacion)
+        formulario = FundacionForm(request.POST, request.FILES ,instance=fundacion)
 
-        if formulario_fundacion.is_valid:
-             formulario_fundacion.save()
-             datos['mensaje'] = 'Fundacion Modificada Correctamente'
+        if formulario.is_valid:
+             formulario.save()
+             data['mensaje'] = 'Fundacion Modificada Correctamente'
     
-    return render(request, 'core/modificar_fund.html', datos)
+    return render(request, 'core/modificar_fundacion.html', data)
 
-def eliminar_fund(request, id):
-    fundacion = Fundacion.objects.get(idFundacion = id)
+def eliminar_fundacion(request, id):
+    fundacion = Fundacion.objects.get(codFundacion = id)
 
     fundacion.delete()
 
-    return redirect(to=administrador)
-    
+    return redirect(to=admin_fund)

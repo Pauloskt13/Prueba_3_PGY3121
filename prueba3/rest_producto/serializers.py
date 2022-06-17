@@ -1,13 +1,14 @@
 from rest_framework import serializers
-
-from core.models import Producto , Fundacion
+from core.models import Producto
+from core.models import Fundacion
 
 class ProductoSerializers (serializers.ModelSerializer):
     class Meta:
         model = Producto
-        fields = ['codProducto','nombreProducto', 'descripcion','stock', 'precio','categoria']
+        fields = ['codProducto','nombreProducto', 'descripcion','stock', 'precio','categoria', 'imagenProd']
 
-class FundacionSerializers (serializers.ModelSerializer):
-    class Meta:
+class FundacionSerializer (serializers.ModelSerializer):
+    class Meta: 
         model = Fundacion
-        fields = ['idFundacion' , 'nomFundacion' , 'dFundacion' , 'emailFundacion' , 'telFundacion']
+        fields = ['nomFundacion', 'nomFundacion', 'descFundacion' , 'dirFundacion ', 'telFundacion', 'mailFundacion','imgFundacion' ]
+                
