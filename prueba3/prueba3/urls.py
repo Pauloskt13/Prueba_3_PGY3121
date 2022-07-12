@@ -17,16 +17,23 @@ from xml.etree.ElementInclude import include
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
-from core.views import index, nosotros, tienda, contacto, donaciones, administrador, agregar_prod, modificar_prod, eliminar_prod,lista_personas,agregar_fundacion, admin_fund,modificar_fundacion,eliminar_fundacion 
+from core.views import index, inicio, nosotros, tienda, contacto, donaciones
+from core.views import donar,administrador, agregar_prod, modificar_prod, eliminar_prod
+from core.views import lista_personas,agregar_fundacion, admin_fund,modificar_fundacion
+from core.views import eliminar_fundacion, listar_carrito,agregar_producto,restar_producto,\
+    eliminar_producto,limpiar_carrito,registro
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('index.html', index, name="index"),
+    path('inicio.html', inicio, name="inicio"),
     path('nosotros.html', nosotros,name="nosotros"),
     path('tienda.html', tienda,name="tienda"),
     path('contacto.html', contacto,name="contacto"),
     path('donaciones.html', donaciones,name="donaciones"),
+    path('donar.html', donar, name="donar"),
     path('administrador.html', administrador,name="administrador"),
     path('agregar_prod.html', agregar_prod,name="agregar_prod"),
     path('modificar_prod/<id>', modificar_prod,name="modificar_prod"),
@@ -37,5 +44,12 @@ urlpatterns = [
     path('admin_fund',admin_fund,name="admin_fund"),
     path('modificar_fundacion/<id>',modificar_fundacion,name="modificar_fundacion"),
     path('eliminar_fundacion /<id>',eliminar_fundacion ,name="eliminar_fundacion "),
+    path('listar_carrito.html',listar_carrito, name="listar_carrito"),
+    path('agregar/<int:codProducto>', agregar_producto, name="Add"),
+    path('eliminar/<int:codProducto', eliminar_producto, name="Del"),
+    path('restar/<int:codProducto>', restar_producto, name="Sub"),
+    path('limpiar/', limpiar_carrito, name="CLS"),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('registro.html',registro,name="registro"),    
 ]
 
