@@ -1,0 +1,22 @@
+{%  extends 'core/index.html' %}
+{% load static %}
+{% block contenido %}
+       
+     <!--FORMULARIO-->
+
+     <h1 class="display-5 bg- text-center text-black p-6"><strong class="justify-content-center">HAZ TU DONACIÓN</strong><br></h1>
+     <p class="text-success d-flex justify-content-center fs-4 mt-2 bg-light">Completa el siguiente formulario, hazte socio y recibe un 5% de descuento en tus compras</p> 
+
+   <div class="container-fluid ml-4-mr-4">
+     <form class="row g-3 bg-light mt-2 mb-3 pt-1 pb-2" id="Form" action="" method="post">
+       {% csrf_token %}       
+
+       {{ form.as_p }}
+       
+       <div class="col-12">
+         <button type="submit" class="btn btn-success">Donar</button>
+         <input class="btn btn-success" type="reset" value="Limpiar formulario">
+       </div>
+     </form>
+   </div>
+    {% endblock %}

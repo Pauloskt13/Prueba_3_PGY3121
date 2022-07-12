@@ -1,0 +1,26 @@
+{%  extends 'core/index.html' %}
+{% load static %}
+{% block contenido %}
+<div class="row">
+    cheemsmarket
+        <!--FORMULARIO-->
+        <h2>Registro de usuario</h2>
+        <h1 class="display-5 bg- text-center text-black p-6"  ><strong class="justify-content-center">Formulario cuenta</strong><br></h1>
+        <p class="text-success text-center d-flex justify-content-center fs-5 bg-light">Crea tu cuenta y compra ahora lo que necesites</p> 
+    <form method="post" action="" enctype="multipart/form-data">
+        <div class="form-group">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+                
+        </div>
+
+        <input type="submit" class="btn btn-danger" value="Registrar"/>
+        <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar"/>
+        <!-- <button href="{% url 'administrador' %} " type="button" class="btn btn-primary" id="volver" value="Regresar" /> -->
+        <br> </br>
+        <a href="{% url 'login' %} ">Iniciar sesión</a>
+    </form>
+    
+</div>
+  {% endblock %}

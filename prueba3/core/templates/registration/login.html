@@ -1,0 +1,26 @@
+{%  extends 'core/index.html' %}
+{% load static %}
+{% block contenido %}
+
+<div class="wrapper">
+    <div class="text-center mt-4 name">
+        <h1>Bienvenido A Cheems Market</h1>
+    </div>
+    <h2>Ingresa tus credenciales</h2>
+    <form class="p-3 mt-3 bg" method="post" id="dataA">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="ingresar">
+        
+    </form>
+    <div class="text-center fs-6">
+        <a href="#">Olvide mi contraseña</a> or <a href="{% url 'registro' %}">Registrate</a>
+    </div>
+</div>
+    <div align="center">
+        <img src= "{% static "img/logo.jpg" %}" alt="" id="logo" >
+    </div>
+    
+
+  {% endblock %}
